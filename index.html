@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow Company — Arma Reforger HQ</title>
+    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Dock -->
+    <nav class="dock-wrapper" id="dockWrapper">
+        <button class="dock-hide-btn" id="dockHideBtn" title="Dock ausblenden">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dock" id="dock">
+            <button class="dock-item active" data-page="dashboard" data-label="Dashboard">
+                <div class="dock-icon-bg purple"><i class="fas fa-chart-line"></i></div>
+                <span class="dock-tooltip">Dashboard</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="announcements" data-label="Ankündigungen">
+                <div class="dock-icon-bg red"><i class="fas fa-bullhorn"></i></div>
+                <span class="dock-badge">3</span>
+                <span class="dock-tooltip">Ankündigungen</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="chat" data-label="Chat">
+                <div class="dock-icon-bg green"><i class="fas fa-comments"></i></div>
+                <span class="dock-badge pulse">5</span>
+                <span class="dock-tooltip">Kompanie Chat</span>
+                <span class="dock-dot"></span>
+            </button>
+
+            <div class="dock-separator"></div>
+
+            <button class="dock-item" data-page="members" data-label="Mitglieder">
+                <div class="dock-icon-bg blue"><i class="fas fa-users"></i></div>
+                <span class="dock-tooltip">Mitglieder</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="invites" data-label="Einladungen">
+                <div class="dock-icon-bg teal"><i class="fas fa-envelope-open-text"></i></div>
+                <span class="dock-tooltip">Einladungen</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="ranks" data-label="Ränge">
+                <div class="dock-icon-bg gold"><i class="fas fa-ranking-star"></i></div>
+                <span class="dock-tooltip">Ränge</span>
+                <span class="dock-dot"></span>
+            </button>
+
+            <div class="dock-separator"></div>
+
+            <button class="dock-item" data-page="treasury" data-label="Kasse">
+                <div class="dock-icon-bg emerald"><i class="fas fa-vault"></i></div>
+                <span class="dock-tooltip">Kompaniekasse</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="warehouse" data-label="Lager">
+                <div class="dock-icon-bg orange"><i class="fas fa-warehouse"></i></div>
+                <span class="dock-tooltip">Lager</span>
+                <span class="dock-dot"></span>
+            </button>
+
+            <div class="dock-separator"></div>
+
+            <button class="dock-item" data-page="events" data-label="Events">
+                <div class="dock-icon-bg pink"><i class="fas fa-calendar-days"></i></div>
+                <span class="dock-badge">2</span>
+                <span class="dock-tooltip">Event-Planer</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="polls" data-label="Polls">
+                <div class="dock-icon-bg indigo"><i class="fas fa-square-poll-vertical"></i></div>
+                <span class="dock-tooltip">Abstimmungen</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="applications" data-label="Bewerbungen">
+                <div class="dock-icon-bg cyan"><i class="fas fa-file-lines"></i></div>
+                <span class="dock-badge">4</span>
+                <span class="dock-tooltip">Bewerbungen</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="activity" data-label="Aktivität">
+                <div class="dock-icon-bg lime"><i class="fas fa-chart-bar"></i></div>
+                <span class="dock-tooltip">Aktivitäts-Tracker</span>
+                <span class="dock-dot"></span>
+            </button>
+
+            <div class="dock-separator"></div>
+
+            <button class="dock-item" data-page="rules" data-label="Regeln">
+                <div class="dock-icon-bg slate"><i class="fas fa-scroll"></i></div>
+                <span class="dock-tooltip">Regelwerk</span>
+                <span class="dock-dot"></span>
+            </button>
+            <button class="dock-item" data-page="settings" data-label="Settings">
+                <div class="dock-icon-bg gray"><i class="fas fa-gear"></i></div>
+                <span class="dock-tooltip">Einstellungen</span>
+                <span class="dock-dot"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Show-Tab (sichtbar wenn Dock versteckt) -->
+    <button class="dock-show-tab" id="dockShowTab" title="Dock einblenden">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="app-container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <div class="topbar-brand">
+                        <div class="family-logo-sm">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <div class="family-info-sm">
+                            <span class="family-name-sm">SHADOW COMPANY</span>
+                            <span class="family-tag-sm">Arma Reforger</span>
+                        </div>
+                    </div>
+                    <div class="topbar-divider"></div>
+                    <h1 class="page-title" id="pageTitle">Dashboard</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Suchen..." id="searchInput">
+                    </div>
+                    <button class="btn-icon notification-btn" id="notifBtn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notif-dot"></span>
+                    </button>
+                    <div class="online-counter">
+                        <span class="online-dot"></span>
+                        <span id="onlineCount">12</span> Online
+                    </div>
+                    <div class="topbar-user">
+                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=CS&backgroundColor=7c3aed" alt="User" class="topbar-avatar">
+                        <span class="topbar-username">Commander_Shadow</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content Container -->
+            <div class="page-content" id="pageContent">
+
+                <!-- ==================== DASHBOARD PAGE ==================== -->
+                <section class="page active" id="page-dashboard">
+                    <div class="stats-grid">
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statMembers">24</span>
+                                <span class="stat-label">Operatoren</span>
+                            </div>
+                            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +3</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="statOnline">12</span>
+                                <span class="stat-label">Online</span>
+                            </div>
+                            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +5</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon gold"><i class="fas fa-calendar-check"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">Anstehende Events</span>
+                            </div>
+                            <span class="stat-trend neutral"><i class="fas fa-minus"></i> 0</span>
+                        </div>
+                        <div class="stat-card glass-card">
+                            <div class="stat-icon red"><i class="fas fa-crosshairs"></i></div>
+                            <div class="stat-info">
+                                <span class="stat-value">7</span>
+                                <span class="stat-label">Operationen</span>
+                            </div>
+                            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +1</span>
+                        </div>
+                    </div>
+
+                    <!-- AGA Event Highlight -->
+                    <div class="aga-event-card glass-card" id="agaEventCard">
+                        <div class="aga-event-accent"></div>
+                        <div class="aga-event-body">
+                            <div class="aga-event-header">
+                                <div class="aga-event-badge">
+                                    <i class="fas fa-shield-halved"></i>
+                                    <span>PFLICHT-EVENT</span>
+                                </div>
+                                <div class="aga-event-status">
+                                    <span class="aga-status-dot"></span>
+                                    <span>Anmeldung offen</span>
+                                </div>
+                            </div>
+                            <h2 class="aga-event-title">
+                                <i class="fas fa-graduation-cap"></i>
+                                AGA — Allgemeine Grundausbildung
+                            </h2>
+                            <p class="aga-event-desc">
+                                Die Allgemeine Grundausbildung ist für alle neuen Rekruten verpflichtend. Hier werden die Grundlagen vermittelt: Waffenkunde, taktisches Verhalten, Funkdisziplin, Formation und Erste Hilfe. Nach erfolgreichem Abschluss erfolgt die Beförderung zum Member.
+                            </p>
+                            <div class="aga-event-details">
+                                <div class="aga-detail">
+                                    <i class="fas fa-calendar-days"></i>
+                                    <div>
+                                        <span class="aga-detail-label">Datum</span>
+                                        <span class="aga-detail-value">05. April 2026</span>
+                                    </div>
+                                </div>
+                                <div class="aga-detail">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <span class="aga-detail-label">Uhrzeit</span>
+                                        <span class="aga-detail-value">19:00 Uhr</span>
+                                    </div>
+                                </div>
+                                <div class="aga-detail">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <div>
+                                        <span class="aga-detail-label">Dauer</span>
+                                        <span class="aga-detail-value">ca. 2–3 Stunden</span>
+                                    </div>
+                                </div>
+                                <div class="aga-detail">
+                                    <i class="fas fa-user-shield"></i>
+                                    <div>
+                                        <span class="aga-detail-label">Ausbilder</span>
+                                        <span class="aga-detail-value">Commander_Shadow, Hawk</span>
+                                    </div>
+                                </div>
+                                <div class="aga-detail">
+                                    <i class="fas fa-map-location-dot"></i>
+                                    <div>
+                                        <span class="aga-detail-label">Treffpunkt</span>
+                                        <span class="aga-detail-value">FOB Alpha — Haupttor</span>
+                                    </div>
+                                </div>
+                                <div class="aga-detail">
+                                    <i class="fas fa-users-rectangle"></i>
+                                    <div>
+                                        <span class="aga-detail-label">Teilnehmer</span>
+                                        <span class="aga-detail-value">6 / 12 angemeldet</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="aga-event-modules">
+                                <span class="aga-module"><i class="fas fa-gun"></i> Waffenkunde</span>
+                                <span class="aga-module"><i class="fas fa-people-group"></i> Formationen</span>
+                                <span class="aga-module"><i class="fas fa-walkie-talkie"></i> Funkverkehr</span>
+                                <span class="aga-module"><i class="fas fa-kit-medical"></i> Erste Hilfe</span>
+                                <span class="aga-module"><i class="fas fa-binoculars"></i> Aufklärung</span>
+                                <span class="aga-module"><i class="fas fa-land-mine-on"></i> Sprengmittel</span>
+                            </div>
+
+                            <div class="aga-event-buttons">
+                                <button class="aga-btn primary" id="agaEquipmentBtn">
+                                    <i class="fas fa-vest"></i> Ausrüstung
+                                </button>
+                                <button class="aga-btn secondary" id="agaScheduleBtn">
+                                    <i class="fas fa-list-check"></i> Ablaufplan
+                                </button>
+                                <button class="aga-btn secondary" id="agaRulesBtn">
+                                    <i class="fas fa-scroll"></i> Regeln
+                                </button>
+                                <button class="aga-btn success" id="agaSignupBtn">
+                                    <i class="fas fa-user-check"></i> Anmelden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-grid">
+                        <div class="glass-card activity-feed">
+                            <div class="card-header">
+                                <h3><i class="fas fa-clock-rotate-left"></i> Letzte Aktivitäten</h3>
+                                <button class="btn-text">Alle anzeigen</button>
+                            </div>
+                            <div class="activity-list" id="activityList">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+
+                        <div class="glass-card quick-actions">
+                            <div class="card-header">
+                                <h3><i class="fas fa-bolt"></i> Schnellzugriff</h3>
+                            </div>
+                            <div class="quick-actions-grid">
+                                <button class="quick-action-btn" data-action="new-announcement">
+                                    <i class="fas fa-bullhorn"></i>
+                                    <span>Ankündigung</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="invite-member">
+                                    <i class="fas fa-user-plus"></i>
+                                    <span>Einladen</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="open-chat">
+                                    <i class="fas fa-message"></i>
+                                    <span>Chat</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="manage-ranks">
+                                    <i class="fas fa-medal"></i>
+                                    <span>Ränge</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="warehouse">
+                                    <i class="fas fa-boxes-stacked"></i>
+                                    <span>Arsenal</span>
+                                </button>
+                                <button class="quick-action-btn" data-action="events-page">
+                                    <i class="fas fa-calendar-days"></i>
+                                    <span>Events</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="glass-card online-members">
+                            <div class="card-header">
+                                <h3><i class="fas fa-signal"></i> Online Operatoren</h3>
+                                <span class="member-count-badge">12</span>
+                            </div>
+                            <div class="online-members-list" id="onlineMembersList">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+
+                        <div class="glass-card announcements-preview">
+                            <div class="card-header">
+                                <h3><i class="fas fa-bullhorn"></i> Neueste Ankündigung</h3>
+                                <span class="priority-badge urgent"><i class="fas fa-circle-exclamation"></i> Dringend</span>
+                            </div>
+                            <div class="announcement-preview-card">
+                                <div class="announcement-meta">
+                                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=CS&backgroundColor=7c3aed" alt="" class="mini-avatar">
+                                    <span class="announcement-author">Commander_Shadow</span>
+                                    <span class="announcement-time"><i class="far fa-clock"></i> vor 2 Stunden</span>
+                                </div>
+                                <h4><i class="fas fa-thumbtack" style="color: var(--red); font-size: 12px;"></i> Wichtig: Briefing heute Abend</h4>
+                                <p>Alle Operatoren sollen sich heute um 21:00 Uhr im HQ einfinden. Wir besprechen die nächste Operation...</p>
+                                <div class="announcement-reactions">
+                                    <span class="reaction">👍 8</span>
+                                    <span class="reaction">🔥 5</span>
+                                    <span class="reaction">✅ 12</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== ANNOUNCEMENTS PAGE ==================== -->
+                <section class="page" id="page-announcements">
+                    <div class="page-header-bar">
+                        <h2><i class="fas fa-bullhorn" style="margin-right: 10px; color: var(--accent);"></i>Ankündigungen <span class="page-header-count" id="announcementsCount">3</span></h2>
+                        <button class="btn-primary" id="newAnnouncementBtn">
+                            <i class="fas fa-plus"></i> Neue Ankündigung
+                        </button>
+                    </div>
+                    <div class="announcements-list" id="announcementsList">
+                        <!-- Filled by JS -->
+                    </div>
+
+                    <!-- New Announcement Modal -->
+                    <div class="modal-overlay" id="announcementModal">
+                        <div class="modal glass-card">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-bullhorn"></i> Neue Ankündigung</h3>
+                                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Titel</label>
+                                    <input type="text" id="announcementTitle" placeholder="Titel der Ankündigung..." class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Priorität</label>
+                                    <select id="announcementPriority" class="form-input">
+                                        <option value="normal">Normal</option>
+                                        <option value="important">Wichtig</option>
+                                        <option value="urgent">Dringend</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nachricht</label>
+                                    <textarea id="announcementText" placeholder="Schreibe deine Ankündigung..." class="form-input" rows="5"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="announcementPing"> @everyone benachrichtigen
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-secondary modal-cancel">Abbrechen</button>
+                                <button class="btn-primary" id="postAnnouncementBtn">
+                                    <i class="fas fa-paper-plane"></i> Veröffentlichen
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== CHAT PAGE ==================== -->
+                <section class="page" id="page-chat">
+                    <div class="chat-container">
+                        <div class="chat-channels">
+                            <div class="channels-header">
+                                <h3>Kanäle</h3>
+                                <button class="btn-icon" title="Kanal erstellen"><i class="fas fa-plus"></i></button>
+                            </div>
+                            <div class="channel-list">
+                                <div class="channel-category">
+                                    <i class="fas fa-chevron-down"></i> TEXT KANÄLE
+                                </div>
+                                <a href="#" class="channel-item active" data-channel="allgemein">
+                                    <i class="fas fa-hashtag"></i> allgemein
+                                </a>
+                                <a href="#" class="channel-item" data-channel="wichtig">
+                                    <i class="fas fa-hashtag"></i> wichtig
+                                    <span class="channel-unread">3</span>
+                                </a>
+                                <a href="#" class="channel-item" data-channel="planung">
+                                    <i class="fas fa-hashtag"></i> planung
+                                </a>
+                                <a href="#" class="channel-item" data-channel="memes">
+                                    <i class="fas fa-hashtag"></i> memes
+                                    <span class="channel-unread">12</span>
+                                </a>
+                                <div class="channel-category">
+                                    <i class="fas fa-chevron-down"></i> FÜHRUNG
+                                </div>
+                                <a href="#" class="channel-item locked" data-channel="leader">
+                                    <i class="fas fa-lock"></i> leader-chat
+                                </a>
+                                <a href="#" class="channel-item locked" data-channel="officer">
+                                    <i class="fas fa-lock"></i> officer-chat
+                                </a>
+                            </div>
+                        </div>
+                        <div class="chat-main">
+                            <div class="chat-header">
+                                <div class="chat-header-info">
+                                    <i class="fas fa-hashtag"></i>
+                                    <span class="chat-channel-name">allgemein</span>
+                                    <span class="chat-channel-desc">Allgemeiner Chat für alle Operatoren</span>
+                                </div>
+                                <div class="chat-header-actions">
+                                    <button class="btn-icon"><i class="fas fa-thumbtack"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-users"></i></button>
+                                    <button class="btn-icon"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                            <div class="chat-messages" id="chatMessages">
+                                <!-- Filled by JS -->
+                            </div>
+                            <div class="chat-input-area">
+                                <div class="chat-input-container">
+                                    <button class="btn-icon"><i class="fas fa-circle-plus"></i></button>
+                                    <input type="text" id="chatInput" placeholder="Nachricht an #allgemein">
+                                    <div class="chat-input-actions">
+                                        <button class="btn-icon"><i class="fas fa-face-smile"></i></button>
+                                        <button class="btn-icon"><i class="fas fa-gift"></i></button>
+                                        <button class="btn-icon" id="sendMessageBtn"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-members-sidebar">
+                            <div class="chat-members-title">MITGLIEDER — <span id="chatMemberCount">24</span></div>
+                            <div class="chat-members-list" id="chatMembersList">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== MEMBERS PAGE ==================== -->
+                <section class="page" id="page-members">
+                    <div class="page-header-bar">
+                        <h2>Mitglieder</h2>
+                        <div class="header-actions">
+                            <div class="filter-group">
+                                <select class="form-input filter-select" id="memberFilter">
+                                    <option value="all">Alle Ränge</option>
+                                    <option value="owner">Owner</option>
+                                    <option value="co-leader">Co-Leader</option>
+                                    <option value="officer">Officer</option>
+                                    <option value="member">Member</option>
+                                    <option value="recruit">Recruit</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary" id="inviteMemberBtn">
+                                <i class="fas fa-user-plus"></i> Einladen
+                            </button>
+                        </div>
+                    </div>
+                    <div class="members-table-container glass-card">
+                        <table class="members-table">
+                            <thead>
+                                <tr>
+                                    <th>Operator</th>
+                                    <th>Rang</th>
+                                    <th>Status</th>
+                                    <th>Warns</th>
+                                    <th>Beigetreten</th>
+                                    <th>Aktionen</th>
+                                </tr>
+                            </thead>
+                            <tbody id="membersTableBody">
+                                <!-- Filled by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- ==================== INVITES PAGE ==================== -->
+                <section class="page" id="page-invites">
+                    <div class="page-header-bar">
+                        <h2>Einladungen</h2>
+                        <button class="btn-primary" id="createInviteBtn">
+                            <i class="fas fa-link"></i> Einladung erstellen
+                        </button>
+                    </div>
+                    <div class="invites-grid">
+                        <div class="glass-card invite-stats-card">
+                            <h3>Einladungs-Statistiken</h3>
+                            <div class="invite-stats">
+                                <div class="invite-stat">
+                                    <span class="invite-stat-value">15</span>
+                                    <span class="invite-stat-label">Gesendet</span>
+                                </div>
+                                <div class="invite-stat">
+                                    <span class="invite-stat-value">8</span>
+                                    <span class="invite-stat-label">Angenommen</span>
+                                </div>
+                                <div class="invite-stat">
+                                    <span class="invite-stat-value">4</span>
+                                    <span class="invite-stat-label">Ausstehend</span>
+                                </div>
+                                <div class="invite-stat">
+                                    <span class="invite-stat-value">3</span>
+                                    <span class="invite-stat-label">Abgelehnt</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="glass-card active-invites">
+                            <div class="card-header">
+                                <h3>Aktive Einladungen</h3>
+                            </div>
+                            <div class="invites-list" id="invitesList">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Create Invite Modal -->
+                    <div class="modal-overlay" id="inviteModal">
+                        <div class="modal glass-card">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-envelope-open-text"></i> Einladung erstellen</h3>
+                                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Operator Name</label>
+                                    <input type="text" id="invitePlayerName" placeholder="Operatorname eingeben..." class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Nachricht (optional)</label>
+                                    <textarea id="inviteMessage" placeholder="Persönliche Nachricht..." class="form-input" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ablaufzeit</label>
+                                    <select id="inviteExpiry" class="form-input">
+                                        <option value="24h">24 Stunden</option>
+                                        <option value="48h">48 Stunden</option>
+                                        <option value="7d">7 Tage</option>
+                                        <option value="never">Kein Ablauf</option>
+                                    </select>
+                                </div>
+                                <div class="invite-link-preview" id="inviteLinkPreview" style="display:none;">
+                                    <label>Einladungslink</label>
+                                    <div class="invite-link-box">
+                                        <code id="inviteLinkCode"></code>
+                                        <button class="btn-icon" id="copyInviteLink"><i class="fas fa-copy"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-secondary modal-cancel">Abbrechen</button>
+                                <button class="btn-primary" id="sendInviteBtn">
+                                    <i class="fas fa-paper-plane"></i> Einladung senden
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== RANKS PAGE ==================== -->
+                <section class="page" id="page-ranks">
+                    <div class="page-header-bar">
+                        <h2>Ränge & Rollen</h2>
+                        <button class="btn-primary" id="createRankBtn">
+                            <i class="fas fa-plus"></i> Neuer Rang
+                        </button>
+                    </div>
+                    <div class="ranks-list" id="ranksList">
+                        <!-- Filled by JS -->
+                    </div>
+                </section>
+
+                <!-- ==================== TREASURY PAGE ==================== -->
+                <section class="page" id="page-treasury">
+                    <div class="page-header-bar">
+                        <h2>Kompaniekasse</h2>
+                    </div>
+                    <div class="treasury-grid">
+                        <div class="glass-card treasury-balance">
+                            <div class="treasury-amount">
+                                <span class="treasury-label">Gesamtguthaben</span>
+                                <span class="treasury-value">$2,450,000</span>
+                            </div>
+                            <div class="treasury-actions">
+                                <button class="btn-primary"><i class="fas fa-arrow-down"></i> Einzahlen</button>
+                                <button class="btn-secondary"><i class="fas fa-arrow-up"></i> Auszahlen</button>
+                            </div>
+                        </div>
+                        <div class="glass-card treasury-history">
+                            <div class="card-header">
+                                <h3>Letzte Transaktionen</h3>
+                            </div>
+                            <div class="transaction-list" id="transactionList">
+                                <!-- Filled by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== WAREHOUSE PAGE ==================== -->
+                <section class="page" id="page-warehouse">
+                    <div class="page-header-bar">
+                        <h2>Arsenal</h2>
+                    </div>
+                    <div class="warehouse-grid" id="warehouseGrid">
+                        <!-- Filled by JS -->
+                    </div>
+                </section>
+
+                <!-- ==================== RULES PAGE ==================== -->
+                <section class="page" id="page-rules">
+                    <div class="page-header-bar">
+                        <h2>Regelwerk</h2>
+                        <button class="btn-primary" id="editRulesBtn">
+                            <i class="fas fa-pen"></i> Bearbeiten
+                        </button>
+                    </div>
+                    <div class="rules-container glass-card">
+                        <div class="rules-content" id="rulesContent">
+                            <h3>📋 Regelwerk der Shadow Company</h3>
+                            <div class="rule-section">
+                                <h4>§1 — Allgemeines Verhalten</h4>
+                                <ul>
+                                    <li>Respekt gegenüber allen Kompanie-Mitgliedern ist Pflicht.</li>
+                                    <li>Kein Wechsel zu gegnerischen Fraktionen ohne Genehmigung der Führung.</li>
+                                    <li>Funkdisziplin ist einzuhalten — klare Kommunikation im Einsatz.</li>
+                                </ul>
+                            </div>
+                            <div class="rule-section">
+                                <h4>§2 — Aktivität</h4>
+                                <ul>
+                                    <li>Mindestens 3x pro Woche online sein.</li>
+                                    <li>Bei Inaktivität über 7 Tage: Abmeldung im Dashboard.</li>
+                                    <li>Unentschuldigtes Fehlen bei Pflicht-Operationen führt zur Verwarnung.</li>
+                                </ul>
+                            </div>
+                            <div class="rule-section">
+                                <h4>§3 — Einsätze & Operationen</h4>
+                                <ul>
+                                    <li>Operationen nur mit mindestens 4 Operatoren starten.</li>
+                                    <li>Basisverteidigung hat immer höchste Priorität.</li>
+                                    <li>Koordination über den #planung Chat-Kanal.</li>
+                                </ul>
+                            </div>
+                            <div class="rule-section">
+                                <h4>§4 — Kompaniekasse & Arsenal</h4>
+                                <ul>
+                                    <li>Ressourcen werden gemeinschaftlich verwaltet.</li>
+                                    <li>Entnahmen aus dem Arsenal nur durch Officer+ mit Begründung.</li>
+                                    <li>Alle Transaktionen werden im Dashboard protokolliert.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== EVENTS PAGE ==================== -->
+                <section class="page" id="page-events">
+                    <div class="page-header-bar">
+                        <h2>Event-Planer</h2>
+                        <button class="btn-primary" id="createEventBtn">
+                            <i class="fas fa-plus"></i> Neues Event
+                        </button>
+                    </div>
+                    <div class="events-list" id="eventsList"></div>
+
+                    <div class="modal-overlay" id="eventModal">
+                        <div class="modal glass-card">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-calendar-plus"></i> Neues Event</h3>
+                                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Event-Name</label>
+                                    <input type="text" id="eventName" placeholder="z.B. Operation Nightfall..." class="form-input">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label>Datum</label>
+                                        <input type="date" id="eventDate" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Uhrzeit</label>
+                                        <input type="time" id="eventTime" class="form-input" value="21:00">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Typ</label>
+                                    <select id="eventType" class="form-input">
+                                        <option value="meeting">Briefing</option>
+                                        <option value="war">Operation</option>
+                                        <option value="heist">Aufklärung</option>
+                                        <option value="training">Training</option>
+                                        <option value="party">Feier</option>
+                                        <option value="other">Sonstiges</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Beschreibung</label>
+                                    <textarea id="eventDesc" placeholder="Details zum Event..." class="form-input" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="eventMandatory"> Pflichtveranstaltung
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-secondary modal-cancel">Abbrechen</button>
+                                <button class="btn-primary" id="saveEventBtn"><i class="fas fa-save"></i> Event erstellen</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== POLLS PAGE ==================== -->
+                <section class="page" id="page-polls">
+                    <div class="page-header-bar">
+                        <h2>Abstimmungen</h2>
+                        <button class="btn-primary" id="createPollBtn">
+                            <i class="fas fa-plus"></i> Neue Abstimmung
+                        </button>
+                    </div>
+                    <div class="polls-list" id="pollsList"></div>
+
+                    <div class="modal-overlay" id="pollModal">
+                        <div class="modal glass-card">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-square-poll-vertical"></i> Neue Abstimmung</h3>
+                                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <label>Frage</label>
+                                    <input type="text" id="pollQuestion" placeholder="Worüber soll abgestimmt werden?" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label>Optionen</label>
+                                    <div id="pollOptionsContainer">
+                                        <input type="text" class="form-input poll-option-input" placeholder="Option 1" style="margin-bottom:8px">
+                                        <input type="text" class="form-input poll-option-input" placeholder="Option 2" style="margin-bottom:8px">
+                                    </div>
+                                    <button class="btn-text" id="addPollOptionBtn"><i class="fas fa-plus"></i> Option hinzufügen</button>
+                                </div>
+                                <div class="form-group">
+                                    <label>Ablauf</label>
+                                    <select id="pollDuration" class="form-input">
+                                        <option value="1h">1 Stunde</option>
+                                        <option value="6h">6 Stunden</option>
+                                        <option value="24h" selected>24 Stunden</option>
+                                        <option value="48h">48 Stunden</option>
+                                        <option value="7d">7 Tage</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn-secondary modal-cancel">Abbrechen</button>
+                                <button class="btn-primary" id="savePollBtn"><i class="fas fa-paper-plane"></i> Abstimmung starten</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== APPLICATIONS PAGE ==================== -->
+                <section class="page" id="page-applications">
+                    <div class="page-header-bar">
+                        <h2>Bewerbungen</h2>
+                        <div class="header-actions">
+                            <select class="form-input filter-select" id="appFilter">
+                                <option value="all">Alle</option>
+                                <option value="pending">Ausstehend</option>
+                                <option value="accepted">Angenommen</option>
+                                <option value="rejected">Abgelehnt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="applications-list" id="applicationsList"></div>
+                </section>
+
+                <!-- ==================== ACTIVITY TRACKER PAGE ==================== -->
+                <section class="page" id="page-activity">
+                    <div class="page-header-bar">
+                        <h2>Aktivitäts-Tracker</h2>
+                        <div class="header-actions">
+                            <select class="form-input filter-select" id="activityPeriod">
+                                <option value="week">Diese Woche</option>
+                                <option value="month">Dieser Monat</option>
+                                <option value="all">Gesamt</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="activity-tracker-grid" id="activityTrackerGrid"></div>
+                </section>
+
+                <!-- ==================== WARN SYSTEM (in Members modal) ==================== -->
+                <div class="modal-overlay" id="warnModal">
+                    <div class="modal glass-card">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-triangle-exclamation"></i> Verwarnung erteilen</h3>
+                            <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="warn-target" id="warnTarget"></div>
+                            <div class="form-group">
+                                <label>Grund der Verwarnung</label>
+                                <select id="warnReason" class="form-input">
+                                    <option value="inactivity">Inaktivität</option>
+                                    <option value="misconduct">Fehlverhalten</option>
+                                    <option value="event-miss">Event verpasst</option>
+                                    <option value="rule-break">Regelverstoß</option>
+                                    <option value="other">Sonstiges</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Details (optional)</label>
+                                <textarea id="warnDetails" placeholder="Weitere Details..." class="form-input" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary modal-cancel">Abbrechen</button>
+                            <button class="btn-danger" id="confirmWarnBtn" style="width:auto;margin-top:0"><i class="fas fa-gavel"></i> Verwarnung erteilen</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member Notes Modal -->
+                <div class="modal-overlay" id="notesModal">
+                    <div class="modal glass-card">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-sticky-note"></i> Mitglieder-Notizen</h3>
+                            <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="notes-target" id="notesTarget"></div>
+                            <div class="notes-warn-history" id="notesWarnHistory"></div>
+                            <div class="form-group">
+                                <label>Notiz hinzufügen</label>
+                                <textarea id="noteText" placeholder="Private Notiz zu diesem Operator..." class="form-input" rows="3"></textarea>
+                            </div>
+                            <div class="notes-list" id="notesList"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-secondary modal-cancel">Schließen</button>
+                            <button class="btn-primary" id="saveNoteBtn"><i class="fas fa-save"></i> Notiz speichern</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==================== SETTINGS PAGE ==================== -->
+                <section class="page" id="page-settings">
+                    <div class="page-header-bar">
+                        <h2>Einstellungen</h2>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="glass-card settings-section">
+                            <h3><i class="fas fa-palette"></i> Kompanie</h3>
+                            <div class="form-group">
+                                <label>Kompaniename</label>
+                                <input type="text" class="form-input" value="SHADOW COMPANY">
+                            </div>
+                            <div class="form-group">
+                                <label>Slogan / Tag</label>
+                                <input type="text" class="form-input" value="Arma Reforger">
+                            </div>
+                            <div class="form-group">
+                                <label>Kompanie-Farbe</label>
+                                <div class="color-picker-row">
+                                    <input type="color" value="#7c3aed" class="color-input" id="familyColorPicker">
+                                    <span class="color-hex">#7c3aed</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary"><i class="fas fa-save"></i> Speichern</button>
+                        </div>
+                        <div class="glass-card settings-section">
+                            <h3><i class="fas fa-bell"></i> Benachrichtigungen</h3>
+                            <div class="setting-toggle">
+                                <span>Chat Benachrichtigungen</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-toggle">
+                                <span>Ankündigungen</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-toggle">
+                                <span>Einladungsanfragen</span>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-toggle">
+                                <span>Sound-Effekte</span>
+                                <label class="toggle">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="glass-card settings-section danger-zone">
+                            <h3><i class="fas fa-triangle-exclamation"></i> Gefahrenzone</h3>
+                            <p class="danger-text">Achtung: Diese Aktionen können nicht rückgängig gemacht werden.</p>
+                            <button class="btn-danger"><i class="fas fa-user-minus"></i> Kompanie verlassen</button>
+                            <button class="btn-danger"><i class="fas fa-trash"></i> Kompanie auflösen</button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- AGA Equipment Modal -->
+    <div class="modal-overlay" id="equipmentModal">
+        <div class="modal equipment-modal glass-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-vest"></i> AGA — Benötigte Ausrüstung</h3>
+                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="modal-body equipment-modal-body">
+                <p class="equipment-intro">Folgende Ausrüstung muss zur AGA mitgebracht werden. Stelle sicher, dass du alles vor dem Event besorgst.</p>
+
+                <div class="equip-category">
+                    <div class="equip-category-header">
+                        <i class="fas fa-shirt"></i>
+                        <h4>Bekleidung</h4>
+                    </div>
+                    <div class="equip-items-grid">
+                        <div class="equip-item">
+                            <div class="equip-item-icon">👕</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Feldbluse M93 (Woodland)</span>
+                                <span class="equip-item-note">Tarnmuster: M93 CZ Woodland</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">👖</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Feldhose M93 (Woodland)</span>
+                                <span class="equip-item-note">Passend zur Feldbluse</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🥾</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Kampfstiefel</span>
+                                <span class="equip-item-note">Schwarze Combat Boots</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🧤</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Taktische Handschuhe</span>
+                                <span class="equip-item-note">Optional, aber empfohlen</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">⛑️</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Gefechtshelm SSH-68</span>
+                                <span class="equip-item-note">Pflicht bei Übungen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equip-category">
+                    <div class="equip-category-header">
+                        <i class="fas fa-gun"></i>
+                        <h4>Bewaffnung</h4>
+                    </div>
+                    <div class="equip-items-grid">
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🔫</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">AK-74 (Primärwaffe)</span>
+                                <span class="equip-item-note">Standard-Sturmgewehr, 5.45×39mm</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🔫</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Makarov PM (Sekundärwaffe)</span>
+                                <span class="equip-item-note">Pistole, 9×18mm</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🎯</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">6x Magazine AK-74</span>
+                                <span class="equip-item-note">30 Schuss pro Magazin</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🎯</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">2x Magazine Makarov</span>
+                                <span class="equip-item-note">8 Schuss pro Magazin</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">💣</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">2x RGD-5 Handgranaten</span>
+                                <span class="equip-item-note">Splittergranaten</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">💨</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">1x Rauchgranate (Grün)</span>
+                                <span class="equip-item-note">Zum Markieren/Deckung</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equip-category">
+                    <div class="equip-category-header">
+                        <i class="fas fa-vest-patches"></i>
+                        <h4>Trageausrüstung & Schutz</h4>
+                    </div>
+                    <div class="equip-items-grid">
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🛡️</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Plattenträger / Schutzweste</span>
+                                <span class="equip-item-note">6B3 oder vergleichbar</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🎒</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Rucksack (mittel)</span>
+                                <span class="equip-item-note">Für Vorräte und Munition</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🗺️</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Karte & Kompass</span>
+                                <span class="equip-item-note">Navigation im Gelände</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="equip-category">
+                    <div class="equip-category-header">
+                        <i class="fas fa-kit-medical"></i>
+                        <h4>Sanitäts- & Zusatzmaterial</h4>
+                    </div>
+                    <div class="equip-items-grid">
+                        <div class="equip-item">
+                            <div class="equip-item-icon">💊</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Verbandsmaterial (4x)</span>
+                                <span class="equip-item-note">Bandagen / Feldverband</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">💉</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Morphium-Autoinjektor (2x)</span>
+                                <span class="equip-item-note">Schmerzbekämpfung</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">📡</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Funkgerät (AN/PRC-77)</span>
+                                <span class="equip-item-note">Pflicht für Kommunikation</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🔦</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Taschenlampe</span>
+                                <span class="equip-item-note">Für Nachteinsätze</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <div class="equip-item-icon">🔭</div>
+                            <div class="equip-item-info">
+                                <span class="equip-item-name">Fernglas</span>
+                                <span class="equip-item-note">Aufklärung & Beobachtung</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-cancel">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AGA Schedule Modal -->
+    <div class="modal-overlay" id="scheduleModal">
+        <div class="modal equipment-modal glass-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-list-check"></i> AGA — Ablaufplan</h3>
+                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="schedule-timeline">
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:00</div>
+                        <div class="schedule-content">
+                            <h4>Antreten & Begrüßung</h4>
+                            <p>Sammeln am Haupttor, Ausrüstungskontrolle, Einteilung der Gruppen</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:15</div>
+                        <div class="schedule-content">
+                            <h4>Modul 1 — Waffenkunde</h4>
+                            <p>Handhabung AK-74, Laden/Entladen, Sicherung, Wartung</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">19:45</div>
+                        <div class="schedule-content">
+                            <h4>Modul 2 — Schießausbildung</h4>
+                            <p>Schießübungen auf dem Übungsgelände, verschiedene Distanzen</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">20:15</div>
+                        <div class="schedule-content">
+                            <h4>Modul 3 — Formationen & Taktik</h4>
+                            <p>Grundformationen: Reihe, Keil, Doppelreihe. Bewegung unter Feuer</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">20:45</div>
+                        <div class="schedule-content">
+                            <h4>Modul 4 — Funkverkehr</h4>
+                            <p>Funkdisziplin, Rufzeichen, Meldungen, NATO-Alphabet</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:00</div>
+                        <div class="schedule-content">
+                            <h4>Modul 5 — Erste Hilfe</h4>
+                            <p>Verwundetenversorgung, Triage, Evakuierungsprozeduren</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div class="schedule-time">21:30</div>
+                        <div class="schedule-content">
+                            <h4>Abschlussübung</h4>
+                            <p>Kombinierte Übung: Patrouille mit Feindkontakt und CasEvac</p>
+                        </div>
+                    </div>
+                    <div class="schedule-item last">
+                        <div class="schedule-time">22:00</div>
+                        <div class="schedule-content">
+                            <h4>Nachbesprechung & Abschluss</h4>
+                            <p>Feedback, Beförderungen, offene Fragen</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-cancel">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AGA Rules Modal -->
+    <div class="modal-overlay" id="agaRulesModal">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3><i class="fas fa-scroll"></i> AGA — Verhaltensregeln</h3>
+                <button class="btn-icon modal-close"><i class="fas fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="rules-content">
+                    <div class="rule-section">
+                        <h4>§1 — Pünktlichkeit</h4>
+                        <ul>
+                            <li>Erscheinen 10 Minuten vor Beginn (18:50 Uhr).</li>
+                            <li>Verspätung ohne Abmeldung = Verwarnung.</li>
+                        </ul>
+                    </div>
+                    <div class="rule-section">
+                        <h4>§2 — Ausrüstung</h4>
+                        <ul>
+                            <li>Vollständige Ausrüstung laut Liste mitbringen.</li>
+                            <li>Keine nicht-autorisierte Ausrüstung.</li>
+                        </ul>
+                    </div>
+                    <div class="rule-section">
+                        <h4>§3 — Verhalten</h4>
+                        <ul>
+                            <li>Ausbilder-Anweisungen werden sofort befolgt.</li>
+                            <li>Funkdisziplin ist jederzeit einzuhalten.</li>
+                            <li>Kein Friendly Fire — Waffensicherung beachten.</li>
+                        </ul>
+                    </div>
+                    <div class="rule-section">
+                        <h4>§4 — Abschluss</h4>
+                        <ul>
+                            <li>Wer die AGA erfolgreich besteht, wird zum Member befördert.</li>
+                            <li>Bei Nichtbestehen ist eine Wiederholung möglich.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary modal-cancel">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js?v=5"></script>
+</body>
+</html>
