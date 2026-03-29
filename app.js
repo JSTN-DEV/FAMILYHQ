@@ -224,8 +224,6 @@
         members: 'Mitglieder',
         invites: 'Einladungen',
         ranks: 'Ränge & Rollen',
-        treasury: 'Kompaniekasse',
-        warehouse: 'Arsenal',
         events: 'Event-Planer',
         polls: 'Abstimmungen',
         applications: 'Bewerbungen',
@@ -322,7 +320,6 @@
                 'invite-member': () => { navigateTo('invites'); openModal('inviteModal'); },
                 'open-chat': () => navigateTo('chat'),
                 'manage-ranks': () => navigateTo('ranks'),
-                'warehouse': () => navigateTo('warehouse'),
                 'events-page': () => navigateTo('events'),
             };
             if (actionMap[action]) actionMap[action]();
@@ -667,49 +664,6 @@
         `).join('');
     }
 
-    // ─── Render Treasury ─────────────────────────────────────────
-
-    function renderTransactions() {
-        const list = document.getElementById('transactionList');
-        if (!list) return;
-
-        list.innerHTML = TRANSACTIONS.map(t => `
-            <div class="transaction-item">
-                <div class="transaction-icon ${t.type}">
-                    <i class="fas fa-arrow-${t.type === 'deposit' ? 'down' : 'up'}"></i>
-                </div>
-                <div class="transaction-info">
-                    <div class="transaction-desc">${t.desc}</div>
-                    <div class="transaction-meta">${t.date}</div>
-                </div>
-                <span class="transaction-amount ${t.amount >= 0 ? 'positive' : 'negative'}">
-                    ${t.amount >= 0 ? '+' : '-'}${formatMoney(t.amount)}
-                </span>
-            </div>
-        `).join('');
-    }
-
-    // ─── Render Warehouse ────────────────────────────────────────
-
-    function renderWarehouse() {
-        const grid = document.getElementById('warehouseGrid');
-        if (!grid) return;
-
-        grid.innerHTML = WAREHOUSE_ITEMS.map(item => {
-            const pct = Math.round((item.count / item.max) * 100);
-            return `
-                <div class="warehouse-item">
-                    <div class="warehouse-icon">${item.icon}</div>
-                    <div class="warehouse-item-name">${item.name}</div>
-                    <div class="warehouse-item-count">${item.count.toLocaleString('de-DE')}</div>
-                    <div class="warehouse-item-max">/ ${item.max.toLocaleString('de-DE')} max</div>
-                    <div class="warehouse-bar">
-                        <div class="warehouse-bar-fill" style="width:${pct}%"></div>
-                    </div>
-                </div>
-            `;
-        }).join('');
-    }
 
     // ─── Update Stats ────────────────────────────────────────────
 
@@ -1277,6 +1231,40 @@
         }).join('');
     }
 
+    // ─── Profile Dropdown ────────────────────────────────────────
+
+    const profileToggle = document.getElementById('profileToggle');
+    const profileDropdown = document.getElementById('profileDropdown');
+
+    if (profileToggle) {
+        profileToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            profileToggle.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!profileToggle.contains(e.target)) {
+                profileToggle.classList.remove('open');
+            }
+        });
+
+        if (profileDropdown) {
+            profileDropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            profileDropdown.querySelectorAll('.profile-dd-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const action = btn.dataset.action;
+                    if (action) {
+                        profileToggle.classList.remove('open');
+                        document.querySelector(`[data-page="${action}"]`)?.click();
+                    }
+                });
+            });
+        }
+    }
+
     // ─── AGA Countdown Timer ──────────────────────────────────────
 
     const AGA_DATE = new Date('2026-04-05T19:00:00');
@@ -1347,8 +1335,6 @@
         renderMembers();
         renderInvites();
         renderRanks();
-        renderTransactions();
-        renderWarehouse();
         renderEvents();
         renderPolls();
         renderApplications();

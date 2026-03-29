@@ -54,17 +54,6 @@
 
             <div class="dock-separator"></div>
 
-            <button class="dock-item" data-page="treasury" data-label="Kasse">
-                <div class="dock-icon-bg emerald"><i class="fas fa-vault"></i></div>
-                <span class="dock-tooltip">Kompaniekasse</span>
-                <span class="dock-dot"></span>
-            </button>
-            <button class="dock-item" data-page="warehouse" data-label="Lager">
-                <div class="dock-icon-bg orange"><i class="fas fa-warehouse"></i></div>
-                <span class="dock-tooltip">Lager</span>
-                <span class="dock-dot"></span>
-            </button>
-
             <div class="dock-separator"></div>
 
             <button class="dock-item" data-page="events" data-label="Events">
@@ -141,9 +130,50 @@
                         <span class="online-dot"></span>
                         <span id="onlineCount">12</span> Online
                     </div>
-                    <div class="topbar-user">
+                    <div class="topbar-user" id="profileToggle">
                         <img src="https://api.dicebear.com/7.x/initials/svg?seed=CS&backgroundColor=7c3aed" alt="User" class="topbar-avatar">
                         <span class="topbar-username">Commander_Shadow</span>
+                        <i class="fas fa-chevron-down profile-chevron"></i>
+
+                        <!-- Profile Dropdown -->
+                        <div class="profile-dropdown" id="profileDropdown">
+                            <div class="profile-dd-header">
+                                <img src="https://api.dicebear.com/7.x/initials/svg?seed=CS&backgroundColor=7c3aed" alt="User" class="profile-dd-avatar">
+                                <div>
+                                    <div class="profile-dd-name">Commander_Shadow</div>
+                                    <div class="profile-dd-role"><i class="fas fa-crown"></i> Gründer & Kommandant</div>
+                                </div>
+                            </div>
+                            <div class="profile-dd-divider"></div>
+                            <div class="profile-dd-info">
+                                <div class="profile-dd-row">
+                                    <span class="profile-dd-label"><i class="fas fa-id-badge"></i> Rang</span>
+                                    <span class="profile-dd-value">Commander</span>
+                                </div>
+                                <div class="profile-dd-row">
+                                    <span class="profile-dd-label"><i class="fas fa-calendar-plus"></i> Beigetreten</span>
+                                    <span class="profile-dd-value">12. Jan 2026</span>
+                                </div>
+                                <div class="profile-dd-row">
+                                    <span class="profile-dd-label"><i class="fas fa-clock"></i> Letzte Aktivität</span>
+                                    <span class="profile-dd-value">Gerade online</span>
+                                </div>
+                                <div class="profile-dd-row">
+                                    <span class="profile-dd-label"><i class="fas fa-trophy"></i> Einsätze</span>
+                                    <span class="profile-dd-value">47 abgeschlossen</span>
+                                </div>
+                                <div class="profile-dd-row">
+                                    <span class="profile-dd-label"><i class="fas fa-star"></i> Status</span>
+                                    <span class="profile-dd-value profile-dd-status"><span class="online-dot"></span> Aktiv</span>
+                                </div>
+                            </div>
+                            <div class="profile-dd-divider"></div>
+                            <div class="profile-dd-actions">
+                                <button class="profile-dd-btn" data-action="settings"><i class="fas fa-gear"></i> Mein Account</button>
+                                <button class="profile-dd-btn" data-action="settings"><i class="fas fa-palette"></i> Einstellungen</button>
+                                <button class="profile-dd-btn profile-dd-logout"><i class="fas fa-right-from-bracket"></i> Abmelden</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -301,10 +331,6 @@
                                 <button class="quick-action-btn" data-action="manage-ranks">
                                     <i class="fas fa-medal"></i>
                                     <span>Ränge</span>
-                                </button>
-                                <button class="quick-action-btn" data-action="warehouse">
-                                    <i class="fas fa-boxes-stacked"></i>
-                                    <span>Arsenal</span>
                                 </button>
                                 <button class="quick-action-btn" data-action="events-page">
                                     <i class="fas fa-calendar-days"></i>
@@ -607,42 +633,6 @@
                     </div>
                 </section>
 
-                <!-- ==================== TREASURY PAGE ==================== -->
-                <section class="page" id="page-treasury">
-                    <div class="page-header-bar">
-                        <h2>Kompaniekasse</h2>
-                    </div>
-                    <div class="treasury-grid">
-                        <div class="glass-card treasury-balance">
-                            <div class="treasury-amount">
-                                <span class="treasury-label">Gesamtguthaben</span>
-                                <span class="treasury-value">$2,450,000</span>
-                            </div>
-                            <div class="treasury-actions">
-                                <button class="btn-primary"><i class="fas fa-arrow-down"></i> Einzahlen</button>
-                                <button class="btn-secondary"><i class="fas fa-arrow-up"></i> Auszahlen</button>
-                            </div>
-                        </div>
-                        <div class="glass-card treasury-history">
-                            <div class="card-header">
-                                <h3>Letzte Transaktionen</h3>
-                            </div>
-                            <div class="transaction-list" id="transactionList">
-                                <!-- Filled by JS -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ==================== WAREHOUSE PAGE ==================== -->
-                <section class="page" id="page-warehouse">
-                    <div class="page-header-bar">
-                        <h2>Arsenal</h2>
-                    </div>
-                    <div class="warehouse-grid" id="warehouseGrid">
-                        <!-- Filled by JS -->
-                    </div>
-                </section>
 
                 <!-- ==================== RULES PAGE ==================== -->
                 <section class="page" id="page-rules">
