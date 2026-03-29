@@ -218,89 +218,101 @@
                         </div>
                     </div>
 
-                    <!-- Server Status Cards -->
-                    <div class="server-status-stack">
-                        <div class="glass-card server-status-card">
-                            <div class="server-status-media">
-                                <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
-                                <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
-                            </div>
-                            <div class="server-status-content">
-                                <div class="server-status-head">
-                                    <div>
-                                        <span class="server-status-label">Unser Server</span>
-                                        <h3 class="server-status-title">Shadow Company Reforger #1</h3>
+                    <!-- Server Status (Collapsible Card) -->
+                    <div class="glass-card server-group-card" id="serverGroupCard">
+                        <button class="server-group-toggle" id="serverGroupToggle">
+                            <span class="server-group-title">
+                                <i class="fas fa-server"></i>
+                                Company Server Übersicht
+                            </span>
+                            <span class="server-group-meta">2 Server</span>
+                            <i class="fas fa-chevron-down server-group-chevron"></i>
+                        </button>
+                        <div class="server-group-content" id="serverGroupContent">
+                            <div class="server-status-stack">
+                                <div class="glass-card server-status-card">
+                                    <div class="server-status-media">
+                                        <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
+                                        <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
                                     </div>
-                                    <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
-                                        <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
-                                    </a>
+                                    <div class="server-status-content">
+                                        <div class="server-status-head">
+                                            <div>
+                                                <span class="server-status-label">Unser Server</span>
+                                                <h3 class="server-status-title">Shadow Company Reforger #1</h3>
+                                            </div>
+                                            <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
+                                                <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
+                                            </a>
+                                        </div>
+                                        <div class="server-status-metrics">
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
+                                                <span class="metric-value">84 / 100</span>
+                                            </div>
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
+                                                <span class="metric-value good">38 ms</span>
+                                            </div>
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
+                                                <span class="metric-value uptime">99.8%</span>
+                                            </div>
+                                        </div>
+                                        <div class="server-performance">
+                                            <div class="server-performance-head">
+                                                <span><i class="fas fa-gauge-high"></i> Performance</span>
+                                                <span class="perf-value">94%</span>
+                                            </div>
+                                            <div class="perf-bar">
+                                                <div class="perf-fill" style="width:94%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="server-status-metrics">
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
-                                        <span class="metric-value">84 / 100</span>
-                                    </div>
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
-                                        <span class="metric-value good">38 ms</span>
-                                    </div>
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
-                                        <span class="metric-value uptime">99.8%</span>
-                                    </div>
-                                </div>
-                                <div class="server-performance">
-                                    <div class="server-performance-head">
-                                        <span><i class="fas fa-gauge-high"></i> Performance</span>
-                                        <span class="perf-value">94%</span>
-                                    </div>
-                                    <div class="perf-bar">
-                                        <div class="perf-fill" style="width:94%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="glass-card server-status-card">
-                            <div class="server-status-media">
-                                <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
-                                <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
-                            </div>
-                            <div class="server-status-content">
-                                <div class="server-status-head">
-                                    <div>
-                                        <span class="server-status-label">Unser Server</span>
-                                        <h3 class="server-status-title">Comany Operation Server</h3>
+                                <div class="glass-card server-status-card">
+                                    <div class="server-status-media">
+                                        <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
+                                        <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
                                     </div>
-                                    <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
-                                        <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
-                                    </a>
-                                </div>
-                                <div class="server-status-metrics">
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
-                                        <span class="metric-value">52 / 80</span>
-                                    </div>
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
-                                        <span class="metric-value good">44 ms</span>
-                                    </div>
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
-                                        <span class="metric-value uptime">99.4%</span>
-                                    </div>
-                                    <div class="server-metric">
-                                        <span class="metric-name"><i class="fas fa-lock"></i> Passwort</span>
-                                        <span class="metric-value password">Shadow3848488</span>
-                                    </div>
-                                </div>
-                                <div class="server-performance">
-                                    <div class="server-performance-head">
-                                        <span><i class="fas fa-gauge-high"></i> Performance</span>
-                                        <span class="perf-value">91%</span>
-                                    </div>
-                                    <div class="perf-bar">
-                                        <div class="perf-fill" style="width:91%"></div>
+                                    <div class="server-status-content">
+                                        <div class="server-status-head">
+                                            <div>
+                                                <span class="server-status-label">Unser Server</span>
+                                                <h3 class="server-status-title">Comany Operation Server</h3>
+                                            </div>
+                                            <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
+                                                <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
+                                            </a>
+                                        </div>
+                                        <div class="server-status-metrics">
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
+                                                <span class="metric-value">52 / 80</span>
+                                            </div>
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
+                                                <span class="metric-value good">44 ms</span>
+                                            </div>
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
+                                                <span class="metric-value uptime">99.4%</span>
+                                            </div>
+                                            <div class="server-metric">
+                                                <span class="metric-name"><i class="fas fa-lock"></i> Passwort</span>
+                                                <span class="metric-value password">Shadow3848488</span>
+                                            </div>
+                                        </div>
+                                        <div class="server-performance">
+                                            <div class="server-performance-head">
+                                                <span><i class="fas fa-gauge-high"></i> Performance</span>
+                                                <span class="perf-value">91%</span>
+                                            </div>
+                                            <div class="perf-bar">
+                                                <div class="perf-fill" style="width:91%"></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

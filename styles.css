@@ -990,11 +990,84 @@ body::before {
    Server Status Card (Dashboard)
    ============================================ */
 
+.server-group-card {
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.server-group-toggle {
+    width: 100%;
+    border: none;
+    background: transparent;
+    color: var(--text-primary);
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 1px solid transparent;
+}
+
+.server-group-toggle:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.server-group-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.server-group-title i {
+    color: var(--accent);
+}
+
+.server-group-meta {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--text-muted);
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(124, 58, 237, 0.16);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+}
+
+.server-group-chevron {
+    font-size: 10px;
+    color: var(--text-muted);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.server-group-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s ease;
+    padding: 0 10px;
+}
+
+.server-group-card.open .server-group-content {
+    max-height: 1200px;
+    padding: 10px;
+}
+
+.server-group-card.open .server-group-toggle {
+    border-bottom-color: var(--glass-border);
+}
+
+.server-group-card.open .server-group-chevron {
+    transform: rotate(180deg);
+    color: var(--accent);
+}
+
 .server-status-stack {
     display: grid;
     grid-template-columns: repeat(2, 252px);
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 0;
 }
 
 .server-status-card {
@@ -2674,6 +2747,19 @@ select.form-input option { background: var(--bg-secondary); color: var(--text-pr
     .stat-trend { font-size: 10px; }
 
     /* ── Server Status Card ── */
+    .server-group-toggle {
+        padding: 10px 12px;
+    }
+    .server-group-title {
+        font-size: 12px;
+    }
+    .server-group-content {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .server-group-card.open .server-group-content {
+        padding: 8px;
+    }
     .server-status-card {
         width: 100%;
         max-width: none;

@@ -1293,6 +1293,17 @@
     updateAgaCountdown();
     setInterval(updateAgaCountdown, 1000);
 
+    // ─── Server Group Toggle ───────────────────────────────────────
+
+    const serverGroupCard = document.getElementById('serverGroupCard');
+    const serverGroupToggle = document.getElementById('serverGroupToggle');
+
+    if (serverGroupCard && serverGroupToggle) {
+        serverGroupToggle.addEventListener('click', () => {
+            serverGroupCard.classList.toggle('open');
+        });
+    }
+
     // ─── AGA Dropdown Toggles ────────────────────────────────────
 
     document.querySelectorAll('.aga-dropdown-toggle').forEach(btn => {
