@@ -1277,6 +1277,43 @@
         }).join('');
     }
 
+    // ─── AGA Countdown Timer ──────────────────────────────────────
+
+    const AGA_DATE = new Date('2026-04-05T19:00:00');
+
+    function updateAgaCountdown() {
+        const now = new Date();
+        const diff = AGA_DATE - now;
+
+        if (diff <= 0) {
+            const timer = document.getElementById('agaCountdown');
+            if (timer) timer.textContent = 'Event läuft!';
+            return;
+        }
+
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        document.getElementById('agaCdDays').textContent = String(d).padStart(2, '0');
+        document.getElementById('agaCdHours').textContent = String(h).padStart(2, '0');
+        document.getElementById('agaCdMins').textContent = String(m).padStart(2, '0');
+        document.getElementById('agaCdSecs').textContent = String(s).padStart(2, '0');
+    }
+
+    updateAgaCountdown();
+    setInterval(updateAgaCountdown, 1000);
+
+    // ─── AGA Dropdown Toggles ────────────────────────────────────
+
+    document.querySelectorAll('.aga-dropdown-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const dropdown = btn.closest('.aga-dropdown');
+            dropdown.classList.toggle('open');
+        });
+    });
+
     // ─── AGA Event Buttons ────────────────────────────────────────
 
     const agaEquipmentBtn = document.getElementById('agaEquipmentBtn');
@@ -1290,7 +1327,6 @@
     if (agaSignupBtn) {
         agaSignupBtn.addEventListener('click', () => {
             agaSignupBtn.innerHTML = '<i class="fas fa-check-double"></i> Angemeldet!';
-            agaSignupBtn.classList.remove('success');
             agaSignupBtn.style.background = 'var(--green-bg)';
             agaSignupBtn.style.color = 'var(--green)';
             agaSignupBtn.style.border = '1px solid var(--green)';
