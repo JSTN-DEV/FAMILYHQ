@@ -183,293 +183,299 @@
 
                 <!-- ==================== DASHBOARD PAGE ==================== -->
                 <section class="page active" id="page-dashboard">
-                    <div class="stats-grid">
-                        <div class="stat-card glass-card">
-                            <div class="stat-icon purple"><i class="fas fa-users"></i></div>
-                            <div class="stat-info">
-                                <span class="stat-value" id="statMembers">24</span>
-                                <span class="stat-label">Operatoren</span>
-                            </div>
-                            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +3</span>
-                        </div>
-                        <div class="stat-card glass-card">
-                            <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
-                            <div class="stat-info">
-                                <span class="stat-value" id="statOnline">12</span>
-                                <span class="stat-label">Online</span>
-                            </div>
-                            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +5</span>
-                        </div>
-                        <div class="stat-card glass-card">
-                            <div class="stat-icon gold"><i class="fas fa-calendar-check"></i></div>
-                            <div class="stat-info">
-                                <span class="stat-value">3</span>
-                                <span class="stat-label">Anstehende Events</span>
-                            </div>
-                            <span class="stat-trend neutral"><i class="fas fa-minus"></i> 0</span>
-                        </div>
-                        <div class="stat-card glass-card">
-                            <div class="stat-icon red"><i class="fas fa-crosshairs"></i></div>
-                            <div class="stat-info">
-                                <span class="stat-value">7</span>
-                                <span class="stat-label">Operationen</span>
-                            </div>
-                            <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +1</span>
-                        </div>
-                    </div>
-
-                    <!-- Server Status (Collapsible Card) -->
-                    <div class="glass-card server-group-card" id="serverGroupCard">
-                        <button class="server-group-toggle" id="serverGroupToggle">
-                            <span class="server-group-title">
-                                <i class="fas fa-server"></i>
-                                Company Server Übersicht
-                            </span>
-                            <span class="server-group-meta">2 Server</span>
-                            <i class="fas fa-chevron-down server-group-chevron"></i>
-                        </button>
-                        <div class="server-group-content" id="serverGroupContent">
-                            <div class="server-status-stack">
-                                <div class="glass-card server-status-card">
-                                    <div class="server-status-media">
-                                        <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
-                                        <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
-                                    </div>
-                                    <div class="server-status-content">
-                                        <div class="server-status-head">
-                                            <div>
-                                                <span class="server-status-label">Unser Server</span>
-                                                <h3 class="server-status-title">Shadow Company Reforger #1</h3>
-                                            </div>
-                                            <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
-                                                <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
-                                            </a>
-                                        </div>
-                                        <div class="server-status-metrics">
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
-                                                <span class="metric-value">84 / 100</span>
-                                            </div>
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
-                                                <span class="metric-value good">38 ms</span>
-                                            </div>
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
-                                                <span class="metric-value uptime">99.8%</span>
-                                            </div>
-                                        </div>
-                                        <div class="server-performance">
-                                            <div class="server-performance-head">
-                                                <span><i class="fas fa-gauge-high"></i> Performance</span>
-                                                <span class="perf-value">94%</span>
-                                            </div>
-                                            <div class="perf-bar">
-                                                <div class="perf-fill" style="width:94%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="glass-card server-status-card">
-                                    <div class="server-status-media">
-                                        <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
-                                        <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
-                                    </div>
-                                    <div class="server-status-content">
-                                        <div class="server-status-head">
-                                            <div>
-                                                <span class="server-status-label">Unser Server</span>
-                                                <h3 class="server-status-title">Comany Operation Server</h3>
-                                            </div>
-                                            <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
-                                                <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
-                                            </a>
-                                        </div>
-                                        <div class="server-status-metrics">
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
-                                                <span class="metric-value">52 / 80</span>
-                                            </div>
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
-                                                <span class="metric-value good">44 ms</span>
-                                            </div>
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
-                                                <span class="metric-value uptime">99.4%</span>
-                                            </div>
-                                            <div class="server-metric">
-                                                <span class="metric-name"><i class="fas fa-lock"></i> Passwort</span>
-                                                <span class="metric-value password">Shadow3848488</span>
-                                            </div>
-                                        </div>
-                                        <div class="server-performance">
-                                            <div class="server-performance-head">
-                                                <span><i class="fas fa-gauge-high"></i> Performance</span>
-                                                <span class="perf-value">91%</span>
-                                            </div>
-                                            <div class="perf-bar">
-                                                <div class="perf-fill" style="width:91%"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AGA Event Highlight -->
-                    <div class="aga-card glass-card" id="agaEventCard">
-                        <div class="aga-card-accent"></div>
-                        <div class="aga-card-body">
-                            <!-- Header Row -->
-                            <div class="aga-header-row">
-                                <div class="aga-header-left">
-                                    <div class="aga-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="dashboard-layout">
+                        <div class="dashboard-main">
+                            <div class="glass-card dashboard-command-center">
+                                <div class="dashboard-command-head">
                                     <div>
-                                        <div class="aga-title-line">
-                                            <h3 class="aga-title">AGA — Allgemeine Grundausbildung</h3>
-                                            <span class="aga-badge-pflicht">PFLICHT-EVENT</span>
+                                        <h3>Command Center</h3>
+                                        <p>Alle wichtigen Kennzahlen und Aktionen auf einen Blick.</p>
+                                    </div>
+                                    <span class="dashboard-live-pill"><i class="fas fa-circle"></i> Live</span>
+                                </div>
+
+                                <div class="stats-grid">
+                                    <div class="stat-card glass-card">
+                                        <div class="stat-icon purple"><i class="fas fa-users"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-value" id="statMembers">24</span>
+                                            <span class="stat-label">Operatoren</span>
                                         </div>
-                                        <p class="aga-subtitle">Grundausbildung für alle Rekruten — Waffenkunde, Taktik, Funkdisziplin, Erste Hilfe</p>
+                                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +3</span>
+                                    </div>
+                                    <div class="stat-card glass-card">
+                                        <div class="stat-icon green"><i class="fas fa-circle-check"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-value" id="statOnline">12</span>
+                                            <span class="stat-label">Online</span>
+                                        </div>
+                                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +5</span>
+                                    </div>
+                                    <div class="stat-card glass-card">
+                                        <div class="stat-icon gold"><i class="fas fa-calendar-check"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-value">3</span>
+                                            <span class="stat-label">Anstehende Events</span>
+                                        </div>
+                                        <span class="stat-trend neutral"><i class="fas fa-minus"></i> 0</span>
+                                    </div>
+                                    <div class="stat-card glass-card">
+                                        <div class="stat-icon red"><i class="fas fa-crosshairs"></i></div>
+                                        <div class="stat-info">
+                                            <span class="stat-value">7</span>
+                                            <span class="stat-label">Operationen</span>
+                                        </div>
+                                        <span class="stat-trend up"><i class="fas fa-arrow-up"></i> +1</span>
                                     </div>
                                 </div>
-                                <button class="aga-signup-btn" id="agaSignupBtn"><i class="fas fa-user-check"></i> Anmelden</button>
-                            </div>
 
-                            <!-- Info Grid -->
-                            <div class="aga-info-grid">
-                                <div class="aga-info-item aga-info-date">
-                                    <i class="fas fa-calendar-days"></i>
-                                    <div class="aga-date-col">
-                                        <span class="aga-info-label">Datum</span>
-                                        <span class="aga-info-value">05. April 2026 — 19:00 Uhr</span>
-                                        <span class="aga-timer-inline" id="agaCountdown"><span id="agaCdDays">00</span>T <span id="agaCdHours">00</span>h <span id="agaCdMins">00</span>m <span id="agaCdSecs">00</span>s</span>
-                                    </div>
-                                </div>
-                                <div class="aga-info-item">
-                                    <i class="fas fa-hourglass-half"></i>
-                                    <div><span class="aga-info-label">Dauer</span><span class="aga-info-value">ca. 2–3 Stunden</span></div>
-                                </div>
-                                <div class="aga-info-item">
-                                    <i class="fas fa-user-shield"></i>
-                                    <div><span class="aga-info-label">Ausbilder</span><span class="aga-info-value">Commander_Shadow, Hawk</span></div>
-                                </div>
-                                <div class="aga-info-item">
-                                    <i class="fas fa-map-location-dot"></i>
-                                    <div><span class="aga-info-label">Treffpunkt</span><span class="aga-info-value">FOB Alpha — Haupttor</span></div>
-                                </div>
-                                <div class="aga-info-item">
-                                    <i class="fas fa-users"></i>
-                                    <div><span class="aga-info-label">Teilnehmer</span><span class="aga-info-value">6 / 12 angemeldet</span></div>
-                                </div>
-                            </div>
-
-                            <!-- Dropdowns -->
-                            <div class="aga-dropdowns">
-                                <div class="aga-dropdown">
-                                    <button class="aga-dropdown-toggle" data-target="aga-modules">
-                                        <span><i class="fas fa-layer-group"></i> Ausbildungsmodule (6)</span>
-                                        <i class="fas fa-chevron-down aga-chevron"></i>
+                                <div class="quick-actions-grid command-actions-grid">
+                                    <button class="quick-action-btn" data-action="new-announcement">
+                                        <i class="fas fa-bullhorn"></i>
+                                        <span>Ankündigung</span>
                                     </button>
-                                    <div class="aga-dropdown-content" id="aga-modules">
-                                        <div class="aga-modules-compact">
-                                            <span class="aga-module-tag"><i class="fas fa-gun"></i> Waffenkunde</span>
-                                            <span class="aga-module-tag"><i class="fas fa-people-group"></i> Formationen</span>
-                                            <span class="aga-module-tag"><i class="fas fa-walkie-talkie"></i> Funkverkehr</span>
-                                            <span class="aga-module-tag"><i class="fas fa-kit-medical"></i> Erste Hilfe</span>
-                                            <span class="aga-module-tag"><i class="fas fa-binoculars"></i> Aufklärung</span>
-                                            <span class="aga-module-tag"><i class="fas fa-land-mine-on"></i> Sprengmittel</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="aga-dropdown">
-                                    <button class="aga-dropdown-toggle" data-target="aga-resources">
-                                        <span><i class="fas fa-folder-open"></i> Ressourcen & Material</span>
-                                        <i class="fas fa-chevron-down aga-chevron"></i>
+                                    <button class="quick-action-btn" data-action="invite-member">
+                                        <i class="fas fa-user-plus"></i>
+                                        <span>Einladen</span>
                                     </button>
-                                    <div class="aga-dropdown-content" id="aga-resources">
-                                        <div class="aga-resource-btns">
-                                            <button class="aga-res-btn" id="agaEquipmentBtn"><i class="fas fa-vest"></i> Ausrüstungsliste</button>
-                                            <button class="aga-res-btn" id="agaScheduleBtn"><i class="fas fa-list-check"></i> Ablaufplan</button>
-                                            <button class="aga-res-btn" id="agaRulesBtn"><i class="fas fa-scroll"></i> Verhaltensregeln</button>
+                                    <button class="quick-action-btn" data-action="open-chat">
+                                        <i class="fas fa-message"></i>
+                                        <span>Chat öffnen</span>
+                                    </button>
+                                    <button class="quick-action-btn" data-action="manage-ranks">
+                                        <i class="fas fa-medal"></i>
+                                        <span>Ränge verwalten</span>
+                                    </button>
+                                    <button class="quick-action-btn" data-action="events-page">
+                                        <i class="fas fa-calendar-days"></i>
+                                        <span>Events planen</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Server Status (Collapsible Card) -->
+                            <div class="glass-card server-group-card" id="serverGroupCard">
+                                <button class="server-group-toggle" id="serverGroupToggle">
+                                    <span class="server-group-title">
+                                        <i class="fas fa-server"></i>
+                                        Company Server Übersicht
+                                    </span>
+                                    <span class="server-group-meta">2 Server</span>
+                                    <i class="fas fa-chevron-down server-group-chevron"></i>
+                                </button>
+                                <div class="server-group-content" id="serverGroupContent">
+                                    <div class="server-status-stack">
+                                        <div class="glass-card server-status-card">
+                                            <div class="server-status-media">
+                                                <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
+                                                <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
+                                            </div>
+                                            <div class="server-status-content">
+                                                <div class="server-status-head">
+                                                    <div>
+                                                        <span class="server-status-label">Unser Server</span>
+                                                        <h3 class="server-status-title">Shadow Company Reforger #1</h3>
+                                                    </div>
+                                                    <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
+                                                        <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
+                                                    </a>
+                                                </div>
+                                                <div class="server-status-metrics">
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
+                                                        <span class="metric-value">84 / 100</span>
+                                                    </div>
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
+                                                        <span class="metric-value good">38 ms</span>
+                                                    </div>
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
+                                                        <span class="metric-value uptime">99.8%</span>
+                                                    </div>
+                                                </div>
+                                                <div class="server-performance">
+                                                    <div class="server-performance-head">
+                                                        <span><i class="fas fa-gauge-high"></i> Performance</span>
+                                                        <span class="perf-value">94%</span>
+                                                    </div>
+                                                    <div class="perf-bar">
+                                                        <div class="perf-fill" style="width:94%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="glass-card server-status-card">
+                                            <div class="server-status-media">
+                                                <img src="assets/server-shadow-company.png" alt="Server Preview" class="server-status-image">
+                                                <span class="server-status-badge online"><i class="fas fa-circle"></i> Online</span>
+                                            </div>
+                                            <div class="server-status-content">
+                                                <div class="server-status-head">
+                                                    <div>
+                                                        <span class="server-status-label">Unser Server</span>
+                                                        <h3 class="server-status-title">Comany Operation Server</h3>
+                                                    </div>
+                                                    <a class="server-status-link" href="https://reforger.armaplatform.com/servers" target="_blank" rel="noopener noreferrer">
+                                                        <i class="fas fa-arrow-up-right-from-square"></i> Direktlink
+                                                    </a>
+                                                </div>
+                                                <div class="server-status-metrics">
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-users"></i> Slots</span>
+                                                        <span class="metric-value">52 / 80</span>
+                                                    </div>
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-wave-square"></i> Latenz</span>
+                                                        <span class="metric-value good">44 ms</span>
+                                                    </div>
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-shield-heart"></i> Uptime</span>
+                                                        <span class="metric-value uptime">99.4%</span>
+                                                    </div>
+                                                    <div class="server-metric">
+                                                        <span class="metric-name"><i class="fas fa-lock"></i> Passwort</span>
+                                                        <span class="metric-value password">Shadow3848488</span>
+                                                    </div>
+                                                </div>
+                                                <div class="server-performance">
+                                                    <div class="server-performance-head">
+                                                        <span><i class="fas fa-gauge-high"></i> Performance</span>
+                                                        <span class="perf-value">91%</span>
+                                                    </div>
+                                                    <div class="perf-bar">
+                                                        <div class="perf-fill" style="width:91%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- AGA Event Highlight -->
+                            <div class="aga-card glass-card" id="agaEventCard">
+                                <div class="aga-card-accent"></div>
+                                <div class="aga-card-body">
+                                    <div class="aga-header-row">
+                                        <div class="aga-header-left">
+                                            <div class="aga-icon-wrap"><i class="fas fa-graduation-cap"></i></div>
+                                            <div>
+                                                <div class="aga-title-line">
+                                                    <h3 class="aga-title">AGA — Allgemeine Grundausbildung</h3>
+                                                    <span class="aga-badge-pflicht">PFLICHT-EVENT</span>
+                                                </div>
+                                                <p class="aga-subtitle">Grundausbildung für alle Rekruten — Waffenkunde, Taktik, Funkdisziplin, Erste Hilfe</p>
+                                            </div>
+                                        </div>
+                                        <button class="aga-signup-btn" id="agaSignupBtn"><i class="fas fa-user-check"></i> Anmelden</button>
+                                    </div>
+
+                                    <div class="aga-info-grid">
+                                        <div class="aga-info-item aga-info-date">
+                                            <i class="fas fa-calendar-days"></i>
+                                            <div class="aga-date-col">
+                                                <span class="aga-info-label">Datum</span>
+                                                <span class="aga-info-value">05. April 2026 — 19:00 Uhr</span>
+                                                <span class="aga-timer-inline" id="agaCountdown"><span id="agaCdDays">00</span>T <span id="agaCdHours">00</span>h <span id="agaCdMins">00</span>m <span id="agaCdSecs">00</span>s</span>
+                                            </div>
+                                        </div>
+                                        <div class="aga-info-item">
+                                            <i class="fas fa-hourglass-half"></i>
+                                            <div><span class="aga-info-label">Dauer</span><span class="aga-info-value">ca. 2–3 Stunden</span></div>
+                                        </div>
+                                        <div class="aga-info-item">
+                                            <i class="fas fa-user-shield"></i>
+                                            <div><span class="aga-info-label">Ausbilder</span><span class="aga-info-value">Commander_Shadow, Hawk</span></div>
+                                        </div>
+                                        <div class="aga-info-item">
+                                            <i class="fas fa-map-location-dot"></i>
+                                            <div><span class="aga-info-label">Treffpunkt</span><span class="aga-info-value">FOB Alpha — Haupttor</span></div>
+                                        </div>
+                                        <div class="aga-info-item">
+                                            <i class="fas fa-users"></i>
+                                            <div><span class="aga-info-label">Teilnehmer</span><span class="aga-info-value">6 / 12 angemeldet</span></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="aga-dropdowns">
+                                        <div class="aga-dropdown">
+                                            <button class="aga-dropdown-toggle" data-target="aga-modules">
+                                                <span><i class="fas fa-layer-group"></i> Ausbildungsmodule (6)</span>
+                                                <i class="fas fa-chevron-down aga-chevron"></i>
+                                            </button>
+                                            <div class="aga-dropdown-content" id="aga-modules">
+                                                <div class="aga-modules-compact">
+                                                    <span class="aga-module-tag"><i class="fas fa-gun"></i> Waffenkunde</span>
+                                                    <span class="aga-module-tag"><i class="fas fa-people-group"></i> Formationen</span>
+                                                    <span class="aga-module-tag"><i class="fas fa-walkie-talkie"></i> Funkverkehr</span>
+                                                    <span class="aga-module-tag"><i class="fas fa-kit-medical"></i> Erste Hilfe</span>
+                                                    <span class="aga-module-tag"><i class="fas fa-binoculars"></i> Aufklärung</span>
+                                                    <span class="aga-module-tag"><i class="fas fa-land-mine-on"></i> Sprengmittel</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="aga-dropdown">
+                                            <button class="aga-dropdown-toggle" data-target="aga-resources">
+                                                <span><i class="fas fa-folder-open"></i> Ressourcen & Material</span>
+                                                <i class="fas fa-chevron-down aga-chevron"></i>
+                                            </button>
+                                            <div class="aga-dropdown-content" id="aga-resources">
+                                                <div class="aga-resource-btns">
+                                                    <button class="aga-res-btn" id="agaEquipmentBtn"><i class="fas fa-vest"></i> Ausrüstungsliste</button>
+                                                    <button class="aga-res-btn" id="agaScheduleBtn"><i class="fas fa-list-check"></i> Ablaufplan</button>
+                                                    <button class="aga-res-btn" id="agaRulesBtn"><i class="fas fa-scroll"></i> Verhaltensregeln</button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="dashboard-grid">
-                        <div class="glass-card activity-feed">
-                            <div class="card-header">
-                                <h3><i class="fas fa-clock-rotate-left"></i> Letzte Aktivitäten</h3>
-                                <button class="btn-text">Alle anzeigen</button>
-                            </div>
-                            <div class="activity-list" id="activityList">
-                                <!-- Filled by JS -->
-                            </div>
-                        </div>
-
-                        <div class="glass-card quick-actions">
-                            <div class="card-header">
-                                <h3><i class="fas fa-bolt"></i> Schnellzugriff</h3>
-                            </div>
-                            <div class="quick-actions-grid">
-                                <button class="quick-action-btn" data-action="new-announcement">
-                                    <i class="fas fa-bullhorn"></i>
-                                    <span>Ankündigung</span>
-                                </button>
-                                <button class="quick-action-btn" data-action="invite-member">
-                                    <i class="fas fa-user-plus"></i>
-                                    <span>Einladen</span>
-                                </button>
-                                <button class="quick-action-btn" data-action="open-chat">
-                                    <i class="fas fa-message"></i>
-                                    <span>Chat</span>
-                                </button>
-                                <button class="quick-action-btn" data-action="manage-ranks">
-                                    <i class="fas fa-medal"></i>
-                                    <span>Ränge</span>
-                                </button>
-                                <button class="quick-action-btn" data-action="events-page">
-                                    <i class="fas fa-calendar-days"></i>
-                                    <span>Events</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="glass-card online-members">
-                            <div class="card-header">
-                                <h3><i class="fas fa-signal"></i> Online Operatoren</h3>
-                                <span class="member-count-badge">12</span>
-                            </div>
-                            <div class="online-members-list" id="onlineMembersList">
-                                <!-- Filled by JS -->
-                            </div>
-                        </div>
-
-                        <div class="glass-card announcements-preview">
-                            <div class="card-header">
-                                <h3><i class="fas fa-bullhorn"></i> Neueste Ankündigung</h3>
-                                <span class="priority-badge urgent"><i class="fas fa-circle-exclamation"></i> Dringend</span>
-                            </div>
-                            <div class="announcement-preview-card">
-                                <div class="announcement-meta">
-                                    <img src="https://api.dicebear.com/7.x/initials/svg?seed=CS&backgroundColor=7c3aed" alt="" class="mini-avatar">
-                                    <span class="announcement-author">Commander_Shadow</span>
-                                    <span class="announcement-time"><i class="far fa-clock"></i> vor 2 Stunden</span>
+                        <aside class="dashboard-side">
+                            <div class="glass-card activity-feed">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-clock-rotate-left"></i> Letzte Aktivitäten</h3>
+                                    <button class="btn-text">Alle anzeigen</button>
                                 </div>
-                                <h4><i class="fas fa-thumbtack" style="color: var(--red); font-size: 12px;"></i> Wichtig: Briefing heute Abend</h4>
-                                <p>Alle Operatoren sollen sich heute um 21:00 Uhr im HQ einfinden. Wir besprechen die nächste Operation...</p>
-                                <div class="announcement-reactions">
-                                    <span class="reaction">👍 8</span>
-                                    <span class="reaction">🔥 5</span>
-                                    <span class="reaction">✅ 12</span>
+                                <div class="activity-list" id="activityList">
+                                    <!-- Filled by JS -->
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="glass-card announcements-preview">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-bullhorn"></i> Neueste Ankündigung</h3>
+                                    <span class="priority-badge urgent"><i class="fas fa-circle-exclamation"></i> Dringend</span>
+                                </div>
+                                <div class="announcement-preview-card">
+                                    <div class="announcement-meta">
+                                        <img src="https://api.dicebear.com/7.x/initials/svg?seed=CS&backgroundColor=6b7280" alt="" class="mini-avatar">
+                                        <span class="announcement-author">Commander_Shadow</span>
+                                        <span class="announcement-time"><i class="far fa-clock"></i> vor 2 Stunden</span>
+                                    </div>
+                                    <h4><i class="fas fa-thumbtack" style="color: var(--red); font-size: 12px;"></i> Wichtig: Briefing heute Abend</h4>
+                                    <p>Alle Operatoren sollen sich heute um 21:00 Uhr im HQ einfinden. Wir besprechen die nächste Operation...</p>
+                                    <div class="announcement-reactions">
+                                        <span class="reaction">👍 8</span>
+                                        <span class="reaction">🔥 5</span>
+                                        <span class="reaction">✅ 12</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="glass-card online-members">
+                                <div class="card-header">
+                                    <h3><i class="fas fa-signal"></i> Online Operatoren</h3>
+                                    <span class="member-count-badge">12</span>
+                                </div>
+                                <div class="online-members-list" id="onlineMembersList">
+                                    <!-- Filled by JS -->
+                                </div>
+                            </div>
+                        </aside>
                     </div>
                 </section>
 
