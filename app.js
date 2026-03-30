@@ -1128,13 +1128,48 @@
 
     function renderApplications(filter = 'all') {
         const list = document.getElementById('applicationsList');
+        const summary = document.getElementById('applicationsSummary');
         if (!list) return;
 
         let apps = [...APPLICATIONS];
         if (filter !== 'all') apps = apps.filter(a => a.status === filter);
 
-        const statusColors = { pending: 'gold', accepted: 'green', rejected: 'red' };
         const statusLabels = { pending: 'Ausstehend', accepted: 'Angenommen', rejected: 'Abgelehnt' };
+        const pendingCount = APPLICATIONS.filter(a => a.status === 'pending').length;
+        const acceptedCount = APPLICATIONS.filter(a => a.status === 'accepted').length;
+        const rejectedCount = APPLICATIONS.filter(a => a.status === 'rejected').length;
+
+        if (summary) {
+            summary.innerHTML = `
+                <div class="app-summary-card">
+                    <span class="app-summary-label">Gesamt</span>
+                    <span class="app-summary-value">${APPLICATIONS.length}</span>
+                </div>
+                <div class="app-summary-card pending">
+                    <span class="app-summary-label">Ausstehend</span>
+                    <span class="app-summary-value">${pendingCount}</span>
+                </div>
+                <div class="app-summary-card accepted">
+                    <span class="app-summary-label">Angenommen</span>
+                    <span class="app-summary-value">${acceptedCount}</span>
+                </div>
+                <div class="app-summary-card rejected">
+                    <span class="app-summary-label">Abgelehnt</span>
+                    <span class="app-summary-value">${rejectedCount}</span>
+                </div>
+            `;
+        }
+
+        if (!apps.length) {
+            list.innerHTML = `
+                <div class="app-empty glass-card">
+                    <i class="fas fa-inbox"></i>
+                    <h3>Keine Bewerbungen in dieser Ansicht</h3>
+                    <p>Wähle einen anderen Filter, um weitere Bewerbungen zu sehen.</p>
+                </div>
+            `;
+            return;
+        }
 
         list.innerHTML = apps.map(a => `
             <div class="app-card">
@@ -1143,11 +1178,18 @@
                         <img src="${avatarUrl(a.avatar, '#6366f1')}" alt="">
                         <div>
                             <div class="app-card-player-name">${a.name}</div>
-                            <div class="app-card-player-meta">Level ${a.level} · ${a.age} Jahre · ${a.date}</div>
+                            <div class="app-card-player-meta">Eingang: ${a.date}</div>
                         </div>
                     </div>
-                    <span class="status-badge ${a.status === 'pending' ? 'away' : a.status === 'accepted' ? 'online' : 'offline'}">${statusLabels[a.status]}</span>
+                    <span class="app-status-badge ${a.status}">${statusLabels[a.status]}</span>
                 </div>
+
+                <div class="app-card-facts">
+                    <span class="app-fact"><i class="fas fa-signal"></i> Level ${a.level}</span>
+                    <span class="app-fact"><i class="fas fa-cake-candles"></i> ${a.age} Jahre</span>
+                    <span class="app-fact"><i class="fas fa-clock"></i> ${a.answers.hours}</span>
+                </div>
+
                 <div class="app-card-answers">
                     <div class="app-answer">
                         <div class="app-answer-q">MilSim-Erfahrung</div>

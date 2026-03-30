@@ -2908,6 +2908,17 @@ select.form-input option { background: var(--bg-secondary); color: var(--text-pr
     .announcement-card-title { font-size: 15px; }
     .announcement-card-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
 
+    /* -- Applications -- */
+    .applications-summary { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .applications-list { grid-template-columns: 1fr; }
+    .app-card { padding: 12px; }
+    .app-card-header { margin-bottom: 8px; }
+    .app-card-player img { width: 34px; height: 34px; }
+    .app-card-player-name { font-size: 14px; }
+    .app-card-player-meta { font-size: 11px; }
+    .app-answer-a { font-size: 12px; }
+    .app-card-actions { flex-direction: column; }
+
     /* -- Chat -- */
     .chat-container { height: calc(100vh - 130px); }
     .chat-messages { padding: 12px; }
@@ -3084,18 +3095,64 @@ select.form-input option { background: var(--bg-secondary); color: var(--text-pr
    Applications Page
    ============================================ */
 
-.applications-list { display: flex; flex-direction: column; gap: 12px; }
+.applications-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.app-summary-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.app-summary-card.pending { border-color: rgba(245, 158, 11, 0.35); }
+.app-summary-card.accepted { border-color: rgba(34, 197, 94, 0.35); }
+.app-summary-card.rejected { border-color: rgba(239, 68, 68, 0.35); }
+
+.app-summary-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.app-summary-value {
+    font-size: 20px;
+    font-weight: 800;
+    font-family: 'Rajdhani', sans-serif;
+    line-height: 1.1;
+}
+
+.applications-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 12px;
+}
 
 .app-card {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-lg);
-    padding: 20px;
+    padding: 16px;
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.app-card:hover { border-color: var(--glass-border-hover); }
+.app-card:hover {
+    border-color: var(--glass-border-hover);
+    transform: translateY(-2px);
+}
 
 .app-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
 .app-card-player { display: flex; align-items: center; gap: 12px; }
@@ -3103,16 +3160,73 @@ select.form-input option { background: var(--bg-secondary); color: var(--text-pr
 .app-card-player-name { font-weight: 700; font-size: 15px; }
 .app-card-player-meta { font-size: 12px; color: var(--text-muted); }
 
-.app-card-answers { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-.app-answer { padding: 10px 14px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); }
+.app-status-badge {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+.app-status-badge.pending { background: var(--gold-bg); color: var(--gold); }
+.app-status-badge.accepted { background: var(--green-bg); color: var(--green); }
+.app-status-badge.rejected { background: var(--red-bg); color: var(--red); }
+
+.app-card-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.app-fact {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 9px;
+    border-radius: 999px;
+    border: 1px solid var(--glass-border);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 600;
+}
+.app-fact i { color: var(--accent); }
+
+.app-card-answers {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+.app-answer { padding: 10px 12px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); border: 1px solid rgba(255, 255, 255, 0.04); }
 .app-answer-q { font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px; }
 .app-answer-a { font-size: 13px; color: var(--text-secondary); }
 
 .app-card-actions { display: flex; gap: 8px; }
-.app-btn-accept { padding: 8px 20px; background: var(--green-bg); color: var(--green); border: 1px solid rgba(34,197,94,0.3); border-radius: var(--radius-md); font-weight: 600; font-size: 13px; cursor: pointer; font-family: inherit; transition: var(--transition); }
+.app-btn-accept { padding: 9px 14px; background: var(--green-bg); color: var(--green); border: 1px solid rgba(34,197,94,0.3); border-radius: var(--radius-md); font-weight: 600; font-size: 13px; cursor: pointer; font-family: inherit; transition: var(--transition); flex: 1; }
 .app-btn-accept:hover { background: rgba(34,197,94,0.25); border-color: var(--green); }
-.app-btn-reject { padding: 8px 20px; background: var(--red-bg); color: var(--red); border: 1px solid rgba(239,68,68,0.3); border-radius: var(--radius-md); font-weight: 600; font-size: 13px; cursor: pointer; font-family: inherit; transition: var(--transition); }
+.app-btn-reject { padding: 9px 14px; background: var(--red-bg); color: var(--red); border: 1px solid rgba(239,68,68,0.3); border-radius: var(--radius-md); font-weight: 600; font-size: 13px; cursor: pointer; font-family: inherit; transition: var(--transition); flex: 1; }
 .app-btn-reject:hover { background: rgba(239,68,68,0.25); border-color: var(--red); }
+
+.app-empty {
+    grid-column: 1 / -1;
+    padding: 32px 20px;
+    text-align: center;
+    border: 1px dashed var(--glass-border);
+}
+
+.app-empty i {
+    font-size: 24px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.app-empty h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.app-empty p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
 
 /* ============================================
    Activity Tracker Page
